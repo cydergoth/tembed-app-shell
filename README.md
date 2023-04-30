@@ -19,7 +19,13 @@ the capabilities of the product and provide a "toolkit" of parts to be repurpose
 into your own application. It is _not_ a production ready application! Parts of this
 codebase are derived from the ESP32 IDF, LVGL and Lilygo examples.
 
+Main Screen
 ![Main Screen Image](images/main.png)
+
+WiFi AP selection and password entry showing Return character.
+Rotate dial to select characters or Backspace or Enter
+
+![Wifi Password](images/wifi-pw.png)
 
 1. Build with ESP-IDF V5 for ESP32S3
 1. Init CPU
