@@ -25,7 +25,8 @@ jobs:
       with:
         image: espressif/idf:release-v5.0       
         shell: bash
+        options: -v ${{ github.workspace }}:/project -w /project
         run: |
              pwd
              ls -ld * 
-             idf.py build
+             /opt/esp/entrypoint.sh idf.py build
