@@ -14,7 +14,6 @@ jobs:
   build:
     # ESP IDF build
     runs-on: ubuntu-latest
-    container: 
 
     steps:
     - name: Checkout project
@@ -24,7 +23,9 @@ jobs:
       # Build your program with the given configuration      
       uses: addnab/docker-run-action@v3
       with:
-        image: espressif/idf:release-v5.0
-        options: -v ${{ github.workspace }}:/project -w /project
+        image: espressif/idf:release-v5.0       
+        shell: bash
         run: |
+             pwd
+             ls -ld * 
              idf.py build
