@@ -1,0 +1,32 @@
+name: ESP IDF V5.0
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+env:
+  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    # ESP IDF build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout project
+      uses: actions/checkout@v3
+    
+    - name: Build
+      # Build your program with the given configuration      
+      uses: addnab/docker-run-action@v3
+      with:
+        image: espressif/idf:release-v5.0       
+        shell: bash
+        options: -v ${{ github.workspace }}:/project -w /project
+        run: |
+             pwd
+             ls -ld * 
+             /opt/esp/entrypoint.sh idf.py build
